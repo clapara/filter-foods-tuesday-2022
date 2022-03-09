@@ -38,12 +38,39 @@ img {
 select {
     display: block;
     width: 100%;
+    padding: 10px; /* adding to make filter 'button' bigger */
+    margin-bottom: 10px;
+}
+
+#food { /* don't need to copy and paste this into desktop mode - flex box is the same for all devices */
+    display: flex;
+    flex-wrap: wrap; /* by default, flex-wrap is no wrap (must add wrap) */
+    justify-content: space-between;
+}
+
+#food > div {
+    flex-basis: calc(50% - 10px);
+    text-align: center;
+    transition: all 0.5s ease-in-out; /* that's niiiice */
+}
+
+.item {
+    opacity: 0.3;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.item.active { /*if it has the class 'item' AND class 'active,' it will show up. we'll put JS in */
+    opacity: 1;
 }
 
 
 /* Tablet/Desktop overrides */
 
-@media(min-width: 681px) {}
+@media(min-width: 681px) {
+    #food > div {
+        flex-basis: calc(33% - 10px);
+    }
+}
 
 @media(min-width: 729px) {
     /* Any adjustments for desktop and larger go here. Note these styles will be applied to anything 729px or larger -- so desktop */
